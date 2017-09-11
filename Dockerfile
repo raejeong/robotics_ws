@@ -1,5 +1,10 @@
 FROM nvidia/cuda:8.0-cudnn6-devel
 
+# nvidia-docker hooks
+LABEL com.nvidia.volumes.needed="nvidia_driver"
+ENV PATH /usr/local/nvidia/bin:${PATH}
+ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
+
 # set up environment
 ENV DEBIAN_FRONTEND noninteractive
 
